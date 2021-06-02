@@ -7,15 +7,18 @@ public class Falcon9move : MonoBehaviour
 {
     public float speed = 1;
 
+    public float start_time;
+
     private Rigidbody rigidbody;
 
-    private float movementX;
-    private float movementY;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        start_time = Time.time;
     }
 
 
@@ -24,10 +27,14 @@ public class Falcon9move : MonoBehaviour
     void Update()
     {
 
-        System.Diagnostics.Debug.WriteLine("Log before movement");
+        
         Vector3 movement = new Vector3(0, 5, 0);
 
-        rigidbody.AddForce(movement * speed);
-        System.Diagnostics.Debug.WriteLine("Log after movement");
+        float current_time = Time.time;
+
+
+        if((current_time - start_time) > 15)
+            rigidbody.AddForce(movement * speed);
+        
     }
 }
