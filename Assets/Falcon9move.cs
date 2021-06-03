@@ -33,8 +33,9 @@ public class Falcon9move : MonoBehaviour
         float current_time = Time.time;
 
 
-        if((current_time - start_time) > 15)
+        if((current_time - start_time) > 25)
             rigidbody.AddForce(movement * speed);
+            
         
     }
 }
